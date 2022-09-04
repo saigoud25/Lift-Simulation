@@ -1,0 +1,97 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+
+body html {
+    height: 100%;
+    width: 100%;
+}
+
+#container {
+    height: 100%;
+    position: relative; 
+    overflow: auto; 
+    margin: 0px auto;
+    margin-bottom: 100px;
+    width: 100%;
+    
+}
+
+.input-section .inputs{
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+
+a {
+    font-size: 20px;
+    position: fixed;
+    right: 50px;
+    bottom: 30px;
+}
+
+h1 {
+    height: 50;
+    background-color: aquamarine;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+input {
+    width: 100px;
+    margin: 0px 10px;
+}
+
+.floor {
+    box-shadow: -2px 0 0px 2px #000;
+    height: 200px;
+    position: relative;
+    align-items: center;
+    width: 100%;
+}
+
+.t {
+    background-color: orange;
+    border: solid 1px black;
+    border-radius: 15%;
+    position: absolute;
+    padding: 3px;
+    top: 50%;
+    left: 50px;
+    cursor: pointer;
+}
+
+
+.lift {
+    background-color: rgb(9, 10, 10);
+    border: solid 2px black;
+    width: 70px;
+    height: 100px;
+    position: absolute;
+    display: flex;
+    bottom: 0px;
+    overflow: hidden;
+    z-index: 2;
+    margin-left: 30px;
+}
+
+.doors {
+    margin: 1px;
+    background-color: rgb(5, 165, 246);
+    height: 100%;
+    width: 50%;
+    transition: transform 2.5s linear;
+}
+
+@media screen and (max-width: 0px) {
+    .input-section {
+        display: inline-block;
+    }
+}
