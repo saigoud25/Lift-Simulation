@@ -7,6 +7,7 @@ let canGo = true;
 let working = 0;
 let totalLifts;
 var left;
+let prev = -1;
 
 document.addEventListener("keyup", function(event) {
     if (event.code === 'Enter') {
@@ -17,11 +18,6 @@ document.addEventListener("keyup", function(event) {
 const clicked = () => { 
     floors = Number(document.getElementById('Floors').value);
     lifts = Number(document.getElementById('Lifts').value);
-
-    if(floors==1) {
-        alert("Please Enter Floors Greater than 1..!!");
-        return;
-    }
 
     if(floors<0 || lifts<0) {
         alert("Please Enter Positive Values Only...!!");
@@ -47,6 +43,18 @@ const clicked = () => {
         return;
     }
 
+    if(floors==1) {
+        alert("Please Enter Floors Greater than 1..!!");
+        document.getElementById('Floors').value = '';
+        return;
+    }
+
+    if(lifts>12) {
+        alert("Please Enter Lifts Value Between 1 and 12");
+        document.getElementById('Lifts').value = '';
+        return;
+    }
+
     totalLifts = lifts;
     if(floorsEnter) {
         var e = document.getElementById('container');
@@ -55,6 +63,7 @@ const clicked = () => {
             first.remove();
             first = e.firstElementChild;
         }
+        prev = -1;
     }
     floorsEnter = true;
     
@@ -106,7 +115,13 @@ const createLifts = (lifts) => {
 const buttonClicked = (e) => {
     let clickedFloor = Number(e.target.id);
     console.log(clickedFloor);
-    queue.push(clickedFloor);
+
+    
+    if(prev!=clickedFloor) {
+        queue.push(clickedFloor);
+    }
+
+    prev = clickedFloor;
     console.log(queue);
 
     if((queue.length==1 && canGo)|| (totalLifts != working)) {
